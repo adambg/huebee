@@ -500,6 +500,8 @@ proto.setTexts = function() {
     var elem = this.setTextElems[i];
     var property = elem.nodeName == 'INPUT' ? 'value' : 'textContent';
     elem[ property ] = this.color;
+    // trigger 'change' event when color changed so it can be captured from outside
+    elem.dispatchEvent(new Event('change'));
   }
 };
 
